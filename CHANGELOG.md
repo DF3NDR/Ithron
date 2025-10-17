@@ -14,12 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modular tool installation scripts
 - Project templates for scanning, exploit dev, tool dev, and reporting
 - VS Code configurations with debugging support
-- Support for Python, Go, Rust, and Bash development
+- Support for Python, Rust, and Bash development
 - GitHub issue and PR templates
 - Contributing guidelines
 
 ### Changed
-- Nothing yet
+- Removed Go/Golang support to simplify build process and reduce dependencies
 
 ### Deprecated
 - Nothing yet
@@ -41,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release
 - Kali Linux base image with essential tools
 - VS Code Dev Container support
-- Multi-language development environment (Python, Go, Rust, Bash)
+- Multi-language development environment (Python, Rust, Bash)
 - Modular tool installation system
 - PostgreSQL setup for Metasploit
 - Comprehensive documentation

@@ -11,7 +11,7 @@ A professional, production-ready VS Code Dev Container based on Kali Linux for s
 - **🚀 Rapid Setup**: Go from zero to fully functional in under 10 minutes
 - **🛠️ Development-First**: Seamless integration with modern development workflows
 - **🔐 Security Tools**: Modular installation of networking, web testing, exploitation, and forensics tools
-- **💻 Multi-Language Support**: Python, Go, Rust, and Bash with full IDE support
+- **💻 Multi-Language Support**: Python, Rust, and Bash with full IDE support
 - **📦 Non-Root Default**: Secure by default with sudo privileges when needed
 - **🎨 Professional Structure**: Well-organized project templates and documentation
 - **🔄 Persistent Data**: Volumes for workspace, home directory, and PostgreSQL data
@@ -119,7 +119,6 @@ kali-devcontainer/
 ### Core Tools (Always Available)
 - nmap, netcat, curl, wget, ssh
 - Python 3 with pip, venv
-- Go 1.21+
 - Rust with cargo
 - Git, vim, nano
 - tmux, screen
@@ -170,7 +169,7 @@ cd ~/projects/recon
 cp -r templates/tool-dev ~/projects/my-scanner
 cd ~/projects/my-scanner
 
-# Start developing in Python, Go, or Rust
+# Start developing in Python or Rust
 ```
 
 ### Penetration Testing
@@ -232,17 +231,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # Debug in VS Code (F5)
-```
-
-### Go
-```go
-// Initialize module
-go mod init myproject
-
-// Install dependencies
-go get package
-
-// Debug in VS Code (F5)
 ```
 
 ### Rust

@@ -98,9 +98,6 @@ whoami
 # Check Python
 python --version
 
-# Check Go
-go version
-
 # Check Rust
 rustc --version
 

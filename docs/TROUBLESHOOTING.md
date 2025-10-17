@@ -216,21 +216,6 @@ pip install <package-name>
 python --version
 ```
 
-### Problem: Go modules won't download
-
-**Solution:**
-```bash
-# Set Go proxy
-export GOPROXY=https://proxy.golang.org,direct
-
-# Clean module cache
-go clean -modcache
-
-# Verify Go installation
-go version
-go env
-```
-
 ### Problem: Rust compilation fails
 
 **Solution:**
@@ -291,10 +276,6 @@ which python
 ```bash
 # Python: Install language server
 pip install --user pylint
-
-# Go: Install Go tools
-# Run in VS Code: Ctrl+Shift+P
-# Go: Install/Update Tools
 
 # Rust: Check rust-analyzer
 rustup component add rust-analyzer

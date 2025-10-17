@@ -2,28 +2,6 @@
 
 If you encounter build issues, try these solutions:
 
-## Go Download Failed (exit code 4)
-
-**Issue**: The Dockerfile fails when downloading Go with `exit code: 4`
-
-**Solution**: The Dockerfile has been updated to use apt package manager instead of downloading from golang.org. If you need a specific Go version:
-
-1. Edit `.devcontainer/Dockerfile`
-2. Comment out the apt install section
-3. Uncomment the manual download section
-4. Update `GO_VERSION` to a valid version from https://go.dev/dl/
-
-**Alternative**: Use VS Code Dev Container Features to install Go:
-
-Add to `.devcontainer/devcontainer.json`:
-```json
-"features": {
-    "ghcr.io/devcontainers/features/go:1": {
-        "version": "1.23"
-    }
-}
-```
-
 ## Container Build Tips
 
 1. **Clear Docker cache** if build fails:
@@ -34,8 +12,9 @@ Add to `.devcontainer/devcontainer.json`:
 
 2. **Check network connectivity**:
    ```bash
-   ping go.dev
-   curl -I https://go.dev/dl/
+   # Test general connectivity
+   ping google.com
+   curl -I https://github.com
    ```
 
 3. **Use Docker BuildKit**:

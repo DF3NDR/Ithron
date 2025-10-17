@@ -56,17 +56,6 @@ venv/
 ENV/
 env/
 
-# Go
-vendor/
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-*.test
-*.out
-go.work
-
 # Rust
 debug/
 target/

@@ -49,8 +49,6 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-python.debugpy",
-        // Go
-        "golang.go",
         // Rust
         "rust-lang.rust-analyzer",
         "vadimcn.vscode-lldb",
@@ -88,9 +86,6 @@
         "python.linting.pylintEnabled": true,
         "python.formatting.provider": "black",
         "python.analysis.typeCheckingMode": "basic",
-        // Go settings
-        "go.useLanguageServer": true,
-        "go.toolsManagement.autoUpdate": true,
         // Rust settings
         "rust-analyzer.checkOnSave.command": "clippy",
         // Shell settings

@@ -10,7 +10,7 @@ tool-dev/
 ├── tests/          # Unit tests
 ├── docs/           # Documentation
 ├── examples/       # Usage examples
-└── requirements.txt or Cargo.toml or go.mod
+└── requirements.txt or Cargo.toml
 ```
 
 ## Quick Start
@@ -115,67 +115,6 @@ if __name__ == "__main__":
 ### requirements.txt
 ```
 argparse
-```
-
-## Go Tool Template
-
-```go
-package main
-
-import (
-    "flag"
-    "fmt"
-    "net"
-    "sync"
-    "time"
-)
-
-type ScanResult struct {
-    Port  int
-    State string
-}
-
-func scanPort(host string, port int, timeout time.Duration) ScanResult {
-    address := fmt.Sprintf("%s:%d", host, port)
-    conn, err := net.DialTimeout("tcp", address, timeout)
-
-    if err != nil {
-        return ScanResult{Port: port, State: "closed"}
-    }
-    conn.Close()
-    return ScanResult{Port: port, State: "open"}
-}
-
-func main() {
-    host := flag.String("host", "127.0.0.1", "Target host")
-    startPort := flag.Int("start", 1, "Start port")
-    endPort := flag.Int("end", 1000, "End port")
-    flag.Parse()
-
-    fmt.Printf("Scanning %s from port %d to %d\n", *host, *startPort, *endPort)
-
-    var wg sync.WaitGroup
-    results := make(chan ScanResult)
-
-    for port := *startPort; port <= *endPort; port++ {
-        wg.Add(1)
-        go func(p int) {
-            defer wg.Done()
-            results <- scanPort(*host, p, time.Second)
-        }(port)
-    }
-
-    go func() {
-        wg.Wait()
-        close(results)
-    }()
-
-    for result := range results {
-        if result.State == "open" {
-            fmt.Printf("Port %d: %s\n", result.Port, result.State)
-        }
-    }
-}
 ```
 
 ## Best Practices

@@ -475,29 +475,6 @@ if __name__ == "__main__":
     check_url(url)
 ```
 
-### Go HTTP Server
-
-```go
-package main
-
-import (
-    "fmt"
-    "log"
-    "net/http"
-)
-
-func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Request: %s %s\n", r.Method, r.URL.Path)
-    fmt.Printf("Connection from: %s\n", r.RemoteAddr)
-}
-
-func main() {
-    http.HandleFunc("/", handler)
-    fmt.Println("Server listening on :8080")
-    log.Fatal(http.ListenAndServe(":8080", nil))
-}
-```
-
 ## Tips and Best Practices
 
 ### Output Management

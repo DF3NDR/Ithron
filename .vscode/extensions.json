@@ -4,8 +4,6 @@
     "ms-python.python",
     "ms-python.vscode-pylance",
     "ms-python.debugpy",
-    // Go
-    "golang.go",
     // Rust
     "rust-lang.rust-analyzer",
     "vadimcn.vscode-lldb",

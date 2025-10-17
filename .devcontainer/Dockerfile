@@ -72,24 +72,6 @@ RUN apt-get update && \
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
 
-# Install Go from apt (more reliable than downloading)
-# If you need a specific version, you can uncomment the manual install below
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends golang-go && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Alternative: Install Go manually from golang.org (uncomment if needed)
-# ENV GO_VERSION=1.23.2
-# RUN wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 3 \
-#     https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz && \
-#     tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz && \
-#     rm go${GO_VERSION}.linux-amd64.tar.gz
-
-ENV PATH="/usr/local/go/bin:/usr/lib/go-1.22/bin:${PATH}"
-ENV GOPATH="/home/kali/go"
-ENV PATH="${GOPATH}/bin:${PATH}"
-
 # Install Rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
