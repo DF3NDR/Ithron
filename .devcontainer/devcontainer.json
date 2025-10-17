@@ -1,0 +1,139 @@
+{
+  "name": "Kali Linux Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "USERNAME": "kali",
+      "USER_UID": "1000",
+      "USER_GID": "1000"
+    }
+  },
+  // Container configuration
+  "containerEnv": {
+    "WORKSPACE": "/workspace"
+  },
+  // Mount the workspace and persist data
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "source=kali-postgres-data,target=/var/lib/postgresql,type=volume",
+    "source=kali-home,target=/home/kali,type=volume"
+  ],
+  // Set the default user
+  "remoteUser": "kali",
+  // Run as privileged for security tools that require it (optional, can be disabled)
+  "runArgs": [
+    "--cap-add=NET_ADMIN",
+    "--cap-add=NET_RAW",
+    "--security-opt=seccomp=unconfined"
+  ],
+  // Uncomment to use host network mode (required for some tools)
+  // "runArgs": ["--network=host"],
+  // Features to add
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": false,
+      "installOhMyZsh": false,
+      "upgradePackages": true
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest",
+      "ppa": false
+    }
+  },
+  // VS Code settings
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Python
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy",
+        // Go
+        "golang.go",
+        // Rust
+        "rust-lang.rust-analyzer",
+        "vadimcn.vscode-lldb",
+        // Bash/Shell
+        "mads-hartmann.bash-ide-vscode",
+        "timonwong.shellcheck",
+        "foxundermoon.shell-format",
+        // Git
+        "eamodio.gitlens",
+        "donjayamanne.githistory",
+        // Docker
+        "ms-azuretools.vscode-docker",
+        // Markdown
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        // Security
+        "snyk-security.snyk-vulnerability-scanner",
+        // Utilities
+        "christian-kohler.path-intellisense",
+        "streetsidesoftware.code-spell-checker",
+        "oderwat.indent-rainbow",
+        "pkief.material-icon-theme"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash",
+            "icon": "terminal-bash"
+          }
+        },
+        // Python settings
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.provider": "black",
+        "python.analysis.typeCheckingMode": "basic",
+        // Go settings
+        "go.useLanguageServer": true,
+        "go.toolsManagement.autoUpdate": true,
+        // Rust settings
+        "rust-analyzer.checkOnSave.command": "clippy",
+        // Shell settings
+        "shellcheck.enable": true,
+        "shellformat.flag": "-i 2",
+        // Editor settings
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+        // Security
+        "files.exclude": {
+          "**/.env": false
+        },
+        "files.watcherExclude": {
+          "**/target/**": true,
+          "**/.venv/**": true
+        }
+      }
+    }
+  },
+  // Post-create command to set up environment
+  "postCreateCommand": "bash /workspace/scripts/post-create.sh",
+  // Forward ports
+  "forwardPorts": [
+    8000,
+    8080,
+    4444
+  ],
+  // Port attributes
+  "portsAttributes": {
+    "8000": {
+      "label": "Dev Server",
+      "onAutoForward": "notify"
+    },
+    "8080": {
+      "label": "Web Server",
+      "onAutoForward": "notify"
+    },
+    "4444": {
+      "label": "Listener",
+      "onAutoForward": "ignore"
+    }
+  }
+}

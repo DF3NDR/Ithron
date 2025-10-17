@@ -1,4 +1,181 @@
-debug
-target
-
 notes
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.vscode-server/
+.vscode-test/
+*.swp
+*.swo
+*~
+.idea/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.crt
+credentials.txt
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.coverage
+htmlcov/
+.tox/
+.venv/
+venv/
+ENV/
+env/
+
+# Go
+vendor/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# Rust
+debug/
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# Node.js (if added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+postgresql/
+
+# Scan results and security data
+scans/
+results/
+loot/
+*.pcap
+*.cap
+*.dmp
+dumps/
+
+# Report data (keep templates)
+reports/final/
+reports/screenshots/
+reports/findings/*.md
+!reports/findings/example.md
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+*.orig
+
+# Compiled files
+*.o
+*.a
+*.pyc
+*.class
+*.jar
+*.war
+*.ear
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# OS generated files
+.DS_Store
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Docker
+.docker/
+
+# Backup files
+*~
+*.backup
+*.bak
+\#*\#
+
+# Project specific
+workspace/
+projects/
+tools/
+.cache/
+
+# Keep template directories but ignore their generated content
+templates/*/scans/*
+templates/*/results/*
+templates/*/output/*
+!templates/*/.gitkeep
+
+# Git
+.git/
+*.orig
+
+# Metasploit
+.msf4/
+.msf4/loot/*
+.msf4/logs/*
+
+# Credentials and sensitive data
+password*.txt
+creds*.txt
+hash*.txt
+wordlist*.txt
+rockyou.txt
+
+# Notes (keep in repo for documentation)
+# notes/

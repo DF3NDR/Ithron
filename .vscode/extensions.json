@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    // Python
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.debugpy",
+    // Go
+    "golang.go",
+    // Rust
+    "rust-lang.rust-analyzer",
+    "vadimcn.vscode-lldb",
+    // Bash/Shell
+    "mads-hartmann.bash-ide-vscode",
+    "timonwong.shellcheck",
+    "foxundermoon.shell-format",
+    // Git
+    "eamodio.gitlens",
+    "donjayamanne.githistory",
+    // Docker
+    "ms-azuretools.vscode-docker",
+    // Markdown
+    "yzhang.markdown-all-in-one",
+    "davidanson.vscode-markdownlint",
+    // Security
+    "snyk-security.snyk-vulnerability-scanner",
+    // Utilities
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker",
+    "oderwat.indent-rainbow",
+    "pkief.material-icon-theme"
+  ]
+}
