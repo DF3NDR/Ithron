@@ -39,6 +39,9 @@ RUN apt-get update && \
     bash-completion \
     shellcheck \
     shfmt \
+    # Ruby package manager
+    ruby \
+    ruby-dev \
     # Network tools (core Kali tools)
     nmap \
     netcat-traditional \
@@ -146,6 +149,17 @@ RUN echo 'export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0
     echo 'if [ -f /home/kali/.welcome_message ]; then' >> /home/$USERNAME/.bashrc && \
     echo '    cat /home/kali/.welcome_message' >> /home/$USERNAME/.bashrc && \
     echo 'fi' >> /home/$USERNAME/.bashrc
+
+# Configure git with useful aliases
+RUN git config --global alias.st status && \
+    git config --global alias.co checkout && \
+    git config --global alias.br branch && \
+    git config --global alias.ci commit && \
+    git config --global alias.unstage 'reset HEAD --' && \
+    git config --global alias.last 'log -1 HEAD' && \
+    git config --global alias.visual 'log --graph --oneline --all' && \
+    git config --global color.ui auto && \
+    git config --global init.defaultBranch main
 
 # Create welcome message
 RUN echo '╔═══════════════════════════════════════════════════════════════╗' > /home/$USERNAME/.welcome_message && \
