@@ -4,6 +4,8 @@
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://www.docker.com/)
 [![VS Code](https://img.shields.io/badge/VS%20Code-devcontainer-purple.svg)](https://code.visualstudio.com/)
 
+*Ithron (plural: ithryn) is a Sindarin word from J.R.R. Tolkien's Lord of the Rings, meaning 'wizard' or 'sorcerer'. It symbolizes the mystical power and expertise harnessed for security and creation.*
+
 A professional, production-ready VS Code Dev Container based on Kali Linux for security analysis, penetration testing, tool development, and server management.
 
 ## 🎯 Features

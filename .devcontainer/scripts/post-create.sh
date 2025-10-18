@@ -20,9 +20,9 @@ echo "✓ Directory structure created"
 
 # Set up git if not configured
 if [ ! -f ~/.gitconfig ]; then
-    echo "Git not configured. You can configure it later with:"
-    echo "  git config --global user.name 'Your Name'"
-    echo "  git config --global user.email 'your.email@example.com'"
+  echo "Git not configured. You can configure it later with:"
+  echo "  git config --global user.name 'Your Name'"
+  echo "  git config --global user.email 'your.email@example.com'"
 fi
 
 echo "Installing GitHub CLI..."
