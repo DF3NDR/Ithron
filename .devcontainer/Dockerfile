@@ -94,21 +94,38 @@ USER $USERNAME
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/home/${USERNAME}/.cargo/bin:${PATH}"
 
-# Install common Python packages
-RUN pip3 install --user --no-cache-dir \
-    requests \
-    beautifulsoup4 \
-    lxml \
-    scapy \
-    pwntools \
-    paramiko \
-    cryptography \
-    flask \
-    django \
-    pytest \
-    black \
-    pylint \
-    mypy
+# Switch back to root for system installations
+USER root
+
+# Install Python packages from Kali repos (avoid pip issues)
+# Most Python security packages are pre-built in Kali
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Python development dependencies
+    libssl-dev \
+    libffi-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    zlib1g-dev \
+    libpcap-dev \
+    # Python packages from Kali repos
+    python3-requests \
+    python3-bs4 \
+    python3-lxml \
+    python3-scapy \
+    python3-paramiko \
+    python3-cryptography \
+    python3-flask \
+    python3-pytest \
+    python3-pip-whl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Note: Additional Python packages can be installed later with:
+# pip3 install --user <package>
+# or via the post-create script
+
+# Switch back to non-root user
+USER $USERNAME
 
 # Create workspace directories
 RUN mkdir -p /home/$USERNAME/workspace \

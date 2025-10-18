@@ -222,12 +222,23 @@ sqlmap -u "https://target.example.com/page?id=1" --batch
 ## 🧪 Development Workflow
 
 ### Python
-```python
-# Create virtual environment
+```bash
+# Pre-installed packages (from Kali repos):
+# - requests, beautifulsoup4, lxml
+# - scapy, paramiko, cryptography
+# - flask, pytest
+
+# Install additional packages (optional)
+./scripts/install-python-extras.sh
+
+# Or install manually
+pip3 install --user django black pylint mypy
+
+# Create virtual environment for project
 python -m venv .venv
 source .venv/bin/activate
 
-# Install dependencies
+# Install project dependencies
 pip install -r requirements.txt
 
 # Debug in VS Code (F5)
